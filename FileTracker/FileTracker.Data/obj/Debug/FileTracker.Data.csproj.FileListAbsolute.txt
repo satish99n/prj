@@ -1,0 +1,6 @@
+C:\Users\sraz\Documents\Visual Studio 2015\Projects\FileTracker\FileTracker.Data\bin\Debug\FileTracker.Data.dll
+C:\Users\sraz\Documents\Visual Studio 2015\Projects\FileTracker\FileTracker.Data\bin\Debug\FileTracker.Data.pdb
+C:\Users\sraz\Documents\Visual Studio 2015\Projects\FileTracker\FileTracker.Data\bin\Debug\Dapper.dll
+C:\Users\sraz\Documents\Visual Studio 2015\Projects\FileTracker\FileTracker.Data\bin\Debug\Dapper.xml
+C:\Users\sraz\Documents\Visual Studio 2015\Projects\FileTracker\FileTracker.Data\obj\Debug\FileTracker.Data.dll
+C:\Users\sraz\Documents\Visual Studio 2015\Projects\FileTracker\FileTracker.Data\obj\Debug\FileTracker.Data.pdb

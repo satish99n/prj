@@ -1,0 +1,40 @@
+<mat-vertical-stepper #stepper [selectedIndex]="selectedStepIndex" *ngIf="file !== null && steps != null && steps.length">
+  <mat-step *ngFor="let step of steps" [completed]="step.completed">
+    <ng-template matStepLabel><b>{{step.StatusName}}</b> {{step.UserAck}} {{step.DateAck | date:'medium'}}</ng-template>
+    <div *ngIf="!step.selected">
+      <b>Notes: </b>{{step.Notes}} <br/>
+      <b>Created On: </b>{{step.CreatedDate | date:'medium'}} <br/>
+      <b>Modified On: </b>{{step.ModifiedDate | date:'medium'}} <br/>
+      <b>Acknowledged On: </b>{{step.DateAck | date:'medium'}} <br/>
+    </div>
+    <form [formGroup]="workflowForm" *ngIf="step.selected">
+      <div class="row" *ngIf="step.CompletedDate === null">
+        <div class="col-4" >
+            <mat-form-field>
+                <mat-select placeholder="Assignees" formControlName="AssigneeId" [(ngModel)]="fileTrack.AssigneeId">
+                  <mat-option *ngFor="let user of users" [value]="user.UserId">
+                    {{user.UserActualName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br/><br/>
+              <mat-form-field>
+                  <mat-select placeholder="Exit Code" formControlName="ExitCode">
+                    <mat-option *ngFor="let exitCode of exitCodes" [value]="exitCode.ExitCode">
+                      {{exitCode.Description}}
+                    </mat-option>
+                  </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="col-6">
+            <textarea rows="6" cols="50" placeholder="Enter notes for current step" width="100%" formControlName="Notes" [(ngModel)]="step.Notes"></textarea>
+        </div>
+      </div>
+      <div class="col-4" *ngIf="step.CompletedDate !== null">
+          Assigned To: {{fileTrack.AssigneeName}}
+          Notes: {{step.Notes}}
+        </div>      
+      <br/>
+    </form>
+  </mat-step>
+</mat-vertical-stepper>

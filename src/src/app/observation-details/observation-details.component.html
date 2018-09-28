@@ -1,0 +1,38 @@
+
+<div *ngIf="obs">
+		<table class="table">
+			
+				<thead>
+				  <tr>
+					<th scope="col">id</th>
+					<th scope="col">resourceType</th>
+					<th scope="col">status</th>
+					<th scope="col">text</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+						<td>{{obs.id}}</td>
+						<td>{{obs.resourceType}}</td>
+						<td>{{obs.status}}</td>
+						<td style='width: 20px'><p>Status: {{obs.text.status}}
+								<p> div: {{obs.text.div}}</p></td>
+						</tr>
+						</tbody>
+						</table>
+</div>
+<p id= "demo"> </p>
+
+<div *ngIf="obsList">
+	<a *ngFor="let pobs of obsList"  [routerLink]="['/detail', pobs.id]"  class="col-1-4">
+	<!-- 		<p>inside list {{ obsList[0].resource }} {{ data }}</p>
+			
+				<h4>{{pobs.resource.id}}</h4>
+			-->
+			<p *ngFor="let enter of pobs.entry" [routerLink]="['/detail', enter.resource.id]">{{ enter.resource.id }}   
+		</p>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</a> 
+</div>
+
+

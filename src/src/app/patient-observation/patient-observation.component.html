@@ -1,0 +1,16 @@
+<p>
+  patient-observation works!
+</p>
+
+<div *ngIf="obsList">
+    <a *ngFor="let pobs of obsList"  class="col-1-4">
+    <!-- 		<p>inside list {{ obsList[0].resource }} {{ data }}</p>
+        
+          <h4>{{pobs.resource.id}}</h4>
+        -->
+        <a *ngFor="let enter of pobs.entry" [routerLink]="['/detail', enter.resource.id]"><p> {{ enter.resource.id }}   
+        </p></a>
+      
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </a> 
+  </div>

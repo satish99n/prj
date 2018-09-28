@@ -1,0 +1,7 @@
+C:\Users\gjacob\Documents\Visual Studio 2015\projects\FileTracker\FileTracker.Data\bin\Release\FileTracker.Data.dll
+C:\Users\gjacob\Documents\Visual Studio 2015\projects\FileTracker\FileTracker.Data\bin\Release\FileTracker.Data.pdb
+C:\Users\gjacob\Documents\Visual Studio 2015\projects\FileTracker\FileTracker.Data\bin\Release\Dapper.dll
+C:\Users\gjacob\Documents\Visual Studio 2015\projects\FileTracker\FileTracker.Data\bin\Release\Dapper.xml
+C:\Users\gjacob\Documents\Visual Studio 2015\projects\FileTracker\FileTracker.Data\obj\Release\FileTracker.Data.csprojResolveAssemblyReference.cache
+C:\Users\gjacob\Documents\Visual Studio 2015\projects\FileTracker\FileTracker.Data\obj\Release\FileTracker.Data.dll
+C:\Users\gjacob\Documents\Visual Studio 2015\projects\FileTracker\FileTracker.Data\obj\Release\FileTracker.Data.pdb

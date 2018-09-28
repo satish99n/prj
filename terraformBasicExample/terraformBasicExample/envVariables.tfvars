@@ -1,0 +1,1 @@
+environment_friendly_name = "Development"

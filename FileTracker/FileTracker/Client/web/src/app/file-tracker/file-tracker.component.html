@@ -1,0 +1,55 @@
+<div class="row animated slideInLeft">
+  <div class="col-sm-12 mt-3">
+    <div>
+      <div>
+        <div class="row">
+          <div class="col-4">
+            <mat-form-field>
+              <mat-select placeholder="Choose columns to display" multiple (selectionChange)="toggleColumns($event)" [compareWith]="compareFnc">
+                <mat-option *ngFor="let column of allColumns" [value]="column">{{column.headerName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-3 mt-3">
+            <mat-button-toggle-group (change)='filterByStatus(group.value)' #group="matButtonToggleGroup">
+              <mat-button-toggle [checked]="true" value="all">
+                All
+              </mat-button-toggle>
+              <mat-button-toggle value="assigned">
+                Assigned
+              </mat-button-toggle>
+              <mat-button-toggle value="unassigned">
+                Unassigned
+              </mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+          <div class="col-3 mt-3">
+            <mat-checkbox (change)="filterByActive($event)">Active Only</mat-checkbox>
+          </div>
+          <div class="col-2">
+            <span class="float-right">
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                <mat-icon matSuffix>search</mat-icon>
+              </mat-form-field>
+            </span>
+          </div>
+        </div>
+        <ag-grid-angular #trackerGrid 
+        #agGrid
+        style="width: 100%; height: 600px;"
+        id="agGrid"
+        [rowData]="rowData"
+        class="ag-theme-balham"
+        [columnDefs]="columnDefs"
+        [enableFilter]="true"
+        [enableSorting]="true"
+        [rowSelection]="rowSelection"
+        (selectionChanged)="onSelectionChanged()"
+        (gridReady)="onGridReady($event)">
+          </ag-grid-angular>
+
+      </div>
+    </div>
+  </div>
+</div>

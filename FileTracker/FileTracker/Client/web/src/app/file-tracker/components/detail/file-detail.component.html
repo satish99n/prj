@@ -1,0 +1,47 @@
+<form [formGroup]="detailForm" *ngIf="file !== null">
+
+  <div class="row" style="width:100%">
+    <div class="col-4">
+      <div class="form-group">
+        <label>File Tracker ID</label>
+        <p class="form-control-static">{{file.FileTrackId}}</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="salesforceId">Salesforce ID</label>
+        <input type="text" class="form-control" id="salesforceId" placeholder="Enter Salesforce ID" formControlName="SalesforceId">
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="width:100%">
+    <div class="col-4">
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <input type="text" class="form-control" id="priority" placeholder="Enter Priority" formControlName="Priority">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="businessPriority">Business Priority</label>
+        <mat-form-field>
+          <mat-select placeholder="Business Priority" formControlName="BusinessPriority">
+            <mat-option *ngFor="let c of codeSets" [value]="c.ItemDescription">
+              {{c.ItemDescription}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fileName">File Name</label>
+    <input type="text" class="form-control" id="fileName" placeholder="Enter file name" formControlName="FileName">
+  </div>
+  <div class="form-group">
+    <label for="filePath">File Path</label>
+    <input type="text" class="form-control" id="filePath" placeholder="Enter file path" formControlName="FilePath">
+  </div>
+
+</form>

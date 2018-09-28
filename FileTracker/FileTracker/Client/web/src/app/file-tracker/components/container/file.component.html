@@ -1,0 +1,40 @@
+<div>
+  <div>
+    <app-file-header [file]="file"></app-file-header>
+  </div>
+  <div>
+    <mat-tab-group style="height:450px;">
+      <mat-tab label="Detail">
+        <app-file-detail 
+        [file]="file"
+        [codeSets]="codeSets" 
+        (change)="onChange($event)">
+      </app-file-detail>
+      </mat-tab>
+      <mat-tab label="Workflow">
+        <app-file-workflow 
+        [file]="file" 
+        [steps]="steps" 
+        [matrix]="matrix" 
+        [selectedStepIndex]="selectedStepIndex"
+        [users]="assignees"
+        [statuses]="statuses"
+        [exitCodes]="exitCodes"
+        [fileTrack]="fileTrack"
+        (change)="onChange($event)">
+      </app-file-workflow>
+      </mat-tab>
+      <mat-tab label="Notes">
+          <app-notes [notes]="notes"></app-notes>
+      </mat-tab>
+      <mat-tab label="Integration">
+        <app-integration [file]="file"></app-integration>
+    </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button (click)="onOkClick()" color='primary' cdkFocusInitial>Ok</button>
+  </div>
+</div>

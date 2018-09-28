@@ -1,0 +1,4 @@
+optum\prodconsum\controller\AppController.class
+optum\prodconsum\RestClient\ClientUI.class
+optum\prodconsum\model\User.class
+optum\prodconsum\App.class

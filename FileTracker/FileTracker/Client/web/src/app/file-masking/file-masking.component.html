@@ -1,0 +1,68 @@
+<div class="row animated slideInLeft">
+  <div class="col-12 mt-3">
+      <div class="card">
+          <div class="card-header">Masking</div>
+          <div class="card-body">
+              <ng-template matStepLabel>Choose files for masking</ng-template>
+              <mat-card>
+                <div class="row">
+                  <div class="col-2">
+                      <span style="text-align:left">
+                          <app-file-upload (complete)="onFileComplete($event)"></app-file-upload>
+                        </span>
+                  </div>
+                  <div>
+                      <button *ngIf="files.length > 1" mat-raised-button color="primary" (click)="uploadFiles()">Start</button>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-6"><mat-checkbox *ngIf="files.length > 0" (click)="checkAll()">Check All</mat-checkbox></div>
+                    <div class="col">
+                        <mat-form-field *ngIf="files.length > 0" >
+                            <mat-select placeholder="Select layout for all" (selectionChange)="selectAll($event)">
+                              <mat-option *ngFor="let layout of layouts" [value]="layout">
+                                {{layout}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>  
+                    </div>
+                </div>                              
+                <ul>
+                    <li *ngFor="let file of files" #allFiles>
+                      <mat-card>
+                          <div class="row">
+                              <div class="col-7">
+                                  <span style="font-size: 30px;">
+                                      <mat-checkbox [(ngModel)]="file.selected"></mat-checkbox>
+                                      {{file.data.name}}
+                                  </span> 
+                              </div>
+                              <div class="col-3">
+                                  <mat-form-field>
+                                      <mat-select [(value)]="file.layout" placeholder="Select layout" [disabled]="file.inProgress === true || file.finished === true" (selectionChange)="select">
+                                        <mat-option *ngFor="let layout of layouts" [value]="layout">
+                                          {{layout}}
+                                        </mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                              </div>
+                              <div class="col-2">
+                                  <mat-spinner [diameter]="65" *ngIf="file.inProgress === true"></mat-spinner>
+                                  <div *ngIf="file.finished === true">
+                                    <mat-icon color="primary">check_circle</mat-icon>
+                                    Submitted
+                                  </div>  
+                              </div>
+                          </div>
+                                                    
+                            
+                      </mat-card>
+                      <br/>
+                    </li>
+                  </ul>
+              </mat-card>        
+          </div>
+        </div>
+  </div>
+</div>
